@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoDevHotel.Lib", "DoDevHotel.Lib\DoDevHotel.Lib.csproj", "{3D3186E3-7E0D-4DB5-A0CC-7B2F3BFEA22B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoDevHotel.Web", "DoDevHotel.Web\DoDevHotel.Web.csproj", "{103295F5-E533-47E7-984D-3D3E6EDDB531}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D3186E3-7E0D-4DB5-A0CC-7B2F3BFEA22B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D3186E3-7E0D-4DB5-A0CC-7B2F3BFEA22B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D3186E3-7E0D-4DB5-A0CC-7B2F3BFEA22B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D3186E3-7E0D-4DB5-A0CC-7B2F3BFEA22B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{103295F5-E533-47E7-984D-3D3E6EDDB531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{103295F5-E533-47E7-984D-3D3E6EDDB531}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{103295F5-E533-47E7-984D-3D3E6EDDB531}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{103295F5-E533-47E7-984D-3D3E6EDDB531}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
