@@ -6,10 +6,10 @@ namespace DoDevHotel.Lib.Models
     {
         public string Nome { get; set; }
         public string Telefone { get; set; }
-        public string Cpf { get; set; }
+        public int Cpf { get; set; }
         public string Email { get; set; }
 
-        public Hospede(string nome, string telefone, string cpf, string email, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base (id, dataAtualizacao, dataCadastro)
+        public Hospede(string nome, string telefone, int cpf, string email, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base (id, dataAtualizacao, dataCadastro)
         {
             Nome = nome;
             Telefone = telefone;
@@ -19,7 +19,23 @@ namespace DoDevHotel.Lib.Models
         public Hospede()
         {
 
-        }        
+        }
+        public string GetNome()
+        {
+            return Nome;
+        } 
+        public void SetNome(string nome)
+        {
+            Nome = nome;
+        }     
+        public int GetCpf()
+        {
+            return Cpf;
+        }  
+        public void SetCpf(int cpf)
+        {
+            Cpf = cpf;            
+        }    
         public string GetTelefone()
         {
             return Telefone;

@@ -11,5 +11,13 @@ namespace DoDevHotel.Lib.Models
         {
             
         }
+        public string GetNome()
+        {
+            return Nome;
+        }
+        public void SetNome(string nome)
+        {
+            Nome = nome;
+        }
     }
 }

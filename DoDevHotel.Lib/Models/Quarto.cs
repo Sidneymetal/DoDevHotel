@@ -1,3 +1,5 @@
+using DoDevHotel.Lib.Exceptions;
+
 namespace DoDevHotel.Lib.Models
 {
     public class Quarto : ModelBase
@@ -16,5 +18,22 @@ namespace DoDevHotel.Lib.Models
         {
 
         }
+
+        public int GetNumero()
+        {
+            return Numero;
+        }
+        public void SetNumero(int numero)
+        {
+            Numero = numero;
+        }
+        public int GetAndar()
+        {
+            return Andar;
+        }
+        public void SetAndar(int andar)
+        {            
+            Andar = andar;
+        }        
     }
 }

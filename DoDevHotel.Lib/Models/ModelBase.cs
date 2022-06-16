@@ -1,3 +1,5 @@
+using DoDevHotel.Lib.Exceptions;
+
 namespace DoDevHotel.Lib.Models
 {
     public class ModelBase
@@ -15,5 +17,38 @@ namespace DoDevHotel.Lib.Models
         {
 
         }
+        public int GetId()
+        {
+            return Id;            
+        }
+        public void SetId(int id)
+        {
+            Id = id;
+        }
+        public DateTime GetDataAtualizacao()
+        {
+            return DataAtualizacao;
+        }
+        public void SetDataAtualizacao(DateTime dataAtualizacao)
+        {
+            DataAtualizacao = dataAtualizacao;
+        }
+        public DateTime GetDataCadastro()
+        {
+            return DataCadastro;
+        }
+        public void SetDataCadastro(DateTime dataCadastro)
+        {
+            DataCadastro = dataCadastro;
+        }
+        public bool ValidarCheckOut(DateTime dataCadastro)
+        {
+            if (DataAtualizacao > DataCadastro)
+            {
+                return true;
+            }
+            throw new DoDevHotelException("Data do Cadastro deve ser maior que a data da Atualização.");
+        }
+
     }
 }

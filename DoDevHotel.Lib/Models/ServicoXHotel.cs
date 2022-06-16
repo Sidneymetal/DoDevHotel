@@ -9,5 +9,9 @@ namespace DoDevHotel.Lib.Models
         {
 
         }
+        public ServicoXHotel()
+        {
+            
+        }
     }
 }
