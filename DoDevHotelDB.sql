@@ -1,5 +1,5 @@
 CREATE TABLE ht_hospede (
-  id [pk],
+  id int PRIMARY KEY,
   nome varchar(256),
   telefone varchar(13),
   cpf varchar(13),
@@ -10,14 +10,14 @@ CREATE TABLE ht_hospede (
 );
 
 CREATE TABLE ht_servico (
-  id [pk],
+  id int PRIMARY KEY,
   nome varchar(256),
   data_cadastro timestamp,
   data_ultima_atualizacao timestamp
 );
 
 CREATE TABLE ht_hotel (
-  id [pk],
+  id int PRIMARY KEY,
   nome varchar(256),  
   endereco varchar(256),
   cep varchar(8),
@@ -31,59 +31,66 @@ CREATE TABLE ht_hotel (
 );
 
 CREATE TABLE ht_quarto (
-  id [pk],
-  numero integer,
-  andar integer,
+  id int PRIMARY KEY,
+  id_hotel int, 
+  id_tipo_quarto int,   
+  numero int,
+  andar int,
   data_cadastro timestamp,
-  data_ultima_atualizacao timestamp,
-  id_tipo_quarto [fk],
-  id_hotel[fk]
+  data_ultima_atualizacao timestamp 
 );
 
 CREATE TABLE ht_estadia (
-  id [pk],
-  id_responsavel [fk],
-  id_quarto [fk],
+  id int PRIMARY KEY,
+  id_responsavel int, 
+  id_quarto int, 
   data_entrada date,
   data_saida date,
   data_cadastro timestamp,
   data_ultima_atualizacao timestamp 
 );
 
-CREATE TABLE ht_tipos_quarto (
-  id [pk],
+DROP TABLE ht_tipo_quarto (
+  id int PRIMARY KEY,
   nome varchar(256),
   descricao varchar(256),
-  ocupacao_maxima integer,
-  cama_casal integer,
-  cama_solteiro integer,
-  valor decimal,
+  ocupacao_maxima int,
+  cama_casal int,
+  cama_solteiro int,
+  valor DECIMAL,
   data_cadastro timestamp,
   data_ultima_atualizacao timestamp
 );
 
 CREATE TABLE ht_estadia_x_hospede (
-  id [pk], 
-  id_hotel [fk],
-  id_estadia [fk], 
+  id int PRIMARY KEY, 
+  id_estadia int, 
+  id_hospede int, 
   data_cadastro timestamp,
   data_ultima_atualizacao timestamp  
 );
 
 CREATE TABLE ht_servico_x_hotel (
-  id [pk], 
-  id_hotel [fk],
-  id_estadia [fk], 
+  id int PRIMARY KEY,
+  id_hotel int, 
+  id_estadia int, 
   data_cadastro timestamp,
   data_ultima_atualizacao timestamp  
 );
 
-ALTER TABLE ht_estadia ADD FOREIGN KEY (id_responsavel) REFERENCES ht_hotel (id);
+ALTER TABLE ht_estadia ADD FOREIGN KEY (id_responsavel) REFERENCES ht_hospede (id);
+ALTER TABLE ht_estadia ADD FOREIGN KEY (id_quarto) REFERENCES ht_quarto (id);
 
-ALTER TABLE ht_estadia ADD FOREIGN KEY (id_quarto) REFERENCES ht_hospede (id);
+ALTER TABLE ht_estadia_x_hospede ADD FOREIGN KEY (id_hospede) REFERENCES ht_hospede (id);
+ALTER TABLE ht_estadia_x_hospede ADD FOREIGN KEY (id_estadia) REFERENCES ht_estadia (id);
 
-ALTER TABLE ht_hotel ADD FOREIGN KEY (id_quarto) REFERENCES ht_quarto (id);
+ALTER TABLE ht_servico_x_hotel ADD FOREIGN KEY (id_estadia) REFERENCES ht_servico (id);
+ALTER TABLE ht_servico_x_hotel ADD FOREIGN KEY (id_hotel) REFERENCES ht_hotel (id);
 
-ALTER TABLE ht_quarto ADD FOREIGN KEY (id_tipo_quarto) REFERENCES ht_tipos_quarto (id);
+ALTER TABLE ht_quarto ADD FOREIGN KEY (id_hotel) REFERENCES ht_hotel (id);
+ALTER TABLE ht_quarto ADD FOREIGN KEY (id_tipo_quarto) REFERENCES ht_tipo_quarto (id);
 
-ALTER TABLE ht_hospede ADD FOREIGN KEY (id_servico) REFERENCES ht_servico (id);
+ALTER TABLE ht_hotel ALTER COLUMN check_in TYPE TIME(0)
+
+
+SELECT * FROM ht_estadia
