@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DoDevHotel.Lib.Date.Repository
 {
-    public class ServicoRepositorio : BaseRepositorio<Servico>, IServicoRepositorio
+    public class ServicoXHotelRepositorio : BaseRepositorio<ServicoXHotel>, IServicoXHotelRepositorio
     {
-        public ServicoRepositorio(DoDevHotelContext context) : base(context, context.Servicos)
+        public ServicoXHotelRepositorio(DoDevHotelContext context) : base (context, context.ServicosXHoteis)
         {
             
-        }
+        }   
     }
 }

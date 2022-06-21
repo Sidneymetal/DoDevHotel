@@ -7,8 +7,8 @@ namespace DoDevHotel.Lib.Models
     {
         public DateTime DataEntrada{ get; set;}    
         public DateTime DataSaida{ get; set;}    
-        public Hospede id_hospede { get; set; }
-        public Hotel id_hotel { get; set; } 
+        public Hospede id_responsavel { get; set; }
+        public Hotel id_quarto { get; set; } 
         
         public Estadia (DateTime dataEntrada, DateTime dataSaida, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base (id, dataAtualizacao, dataCadastro)
         {

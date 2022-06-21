@@ -1,6 +1,6 @@
 namespace DoDevHotel.Lib.Interfaces
 {
-    public interface IServicoXHotel
+    public interface IServicoXHotelRepositorio
     {
          
     }

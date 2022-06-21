@@ -13,9 +13,13 @@ namespace DoDevHotel.Lib.Context
         {
             modelBuilder.Entity<Estadia>().ToTable("ht_estadia");
             modelBuilder.Entity<Estadia>().HasKey(x => x.Id);
+            modelBuilder.Entity<Estadia>().HasOne(x => x.id_responsavel);
+            modelBuilder.Entity<Estadia>().HasOne(x => x.id_quarto);
             
             modelBuilder.Entity<EstadiaXHospede>().ToTable("ht_estadia_x_hospede");
             modelBuilder.Entity<EstadiaXHospede>().HasKey(x => x.Id);
+            modelBuilder.Entity<EstadiaXHospede>().HasOne(x => x.id_estadia);
+            modelBuilder.Entity<EstadiaXHospede>().HasOne(x => x.id_hospede);
 
             modelBuilder.Entity<Hospede>().ToTable("ht_hospede");
             modelBuilder.Entity<Hospede>().HasKey(x => x.Id);
@@ -25,6 +29,7 @@ namespace DoDevHotel.Lib.Context
 
             modelBuilder.Entity<Quarto>().ToTable("ht_quarto");
             modelBuilder.Entity<Quarto>().HasKey(x => x.Id);
+            modelBuilder.Entity<Quarto>().HasOne(x => x.id_hotel).WithMany(x => Quartos).HasForeignKey(x => x.id_hotel);
 
             modelBuilder.Entity<Servico>().ToTable("ht_servico");
             modelBuilder.Entity<Servico>().HasKey(x => x.Id);
