@@ -4,15 +4,23 @@ namespace DoDevHotel.Lib.Models
 {
     public class Quarto : ModelBase
     {
+        public int IdHotel { get; set; }
+        public int IdTipoQuarto { get; set; }        
         public int Numero { get; set; }
         public int Andar { get; set; }
-        public TipoQuarto id_tipo_quarto { get; set; }
-        public Hotel id_hotel { get; set; }
+        public Hotel? Hotel { get; set; }
+        public TipoQuarto? TipoQuarto { get; set; }
+        
+        public List<TipoQuarto> ListTiposQuartos = new List<TipoQuarto>();
 
-        public Quarto(int numero, int andar, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base(id, dataAtualizacao, dataCadastro)
+        public Quarto(int idHotel, int idTipoQuarto, int numero, int andar, Hotel hotel, TipoQuarto tipoQuarto, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base(id, dataAtualizacao, dataCadastro)
         {
+            IdHotel = idHotel;
+            IdTipoQuarto = idTipoQuarto;
             Numero = numero;
             Andar = andar;
+            Hotel = hotel;
+            TipoQuarto = tipoQuarto;
         }
         public Quarto()
         {

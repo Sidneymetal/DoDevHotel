@@ -8,8 +8,9 @@ namespace DoDevHotel.Lib.Models
         public string Telefone { get; set; }
         public int Cpf { get; set; }
         public string Email { get; set; }
+        public List<EstadiaXHospede> ListEstadiasXHospedes { get; set; } = new List<EstadiaXHospede>();
 
-        public Hospede(string nome, string telefone, int cpf, string email, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base (id, dataAtualizacao, dataCadastro)
+        public Hospede(string nome, string telefone, int cpf, string email, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base(id, dataAtualizacao, dataCadastro)
         {
             Nome = nome;
             Telefone = telefone;
@@ -23,19 +24,19 @@ namespace DoDevHotel.Lib.Models
         public string GetNome()
         {
             return Nome;
-        } 
+        }
         public void SetNome(string nome)
         {
             Nome = nome;
-        }     
+        }
         public int GetCpf()
         {
             return Cpf;
-        }  
+        }
         public void SetCpf(int cpf)
         {
-            Cpf = cpf;            
-        }    
+            Cpf = cpf;
+        }
         public string GetTelefone()
         {
             return Telefone;
@@ -56,7 +57,7 @@ namespace DoDevHotel.Lib.Models
         }
         public bool ValidarTelefone(string telefone)
         {
-            if(telefone.Length < 14)
+            if (telefone.Length < 14)
             {
                 return true;
             }
@@ -64,7 +65,8 @@ namespace DoDevHotel.Lib.Models
         }
         public bool ValidarEmail(string email)
         {
-            if (email.Contains("@")){
+            if (email.Contains("@"))
+            {
                 return true;
             }
             throw new DoDevHotelException("Erro: O e-mail deve conter @.");
