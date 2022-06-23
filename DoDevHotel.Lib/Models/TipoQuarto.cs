@@ -10,6 +10,7 @@ namespace DoDevHotel.Lib.Models
         public int CamaCasal { get; set; }
         public int CamaSolteiro { get; set; }
         public double Valor { get; set; }
+        
         public TipoQuarto(string nome, string descricao, int ocupacaoMaxima, int camaCasal, int camaSolteiro, double valor, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base(id, dataAtualizacao, dataCadastro)
         {
             Nome = nome;
