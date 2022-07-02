@@ -18,7 +18,7 @@ namespace DoDevHotel.Lib.Context
             
             modelBuilder.Entity<EstadiaXHospede>().ToTable("ht_estadia_x_hospede");
             modelBuilder.Entity<EstadiaXHospede>().HasKey(x => x.Id);
-            modelBuilder.Entity<EstadiaXHospede>().HasOne(x => x.id_estadia);
+            modelBuilder.Entity<EstadiaXHospede>().HasOne(x => x.);
             modelBuilder.Entity<EstadiaXHospede>().HasOne(x => x.id_hospede);
 
             modelBuilder.Entity<Hospede>().ToTable("ht_hospede");
