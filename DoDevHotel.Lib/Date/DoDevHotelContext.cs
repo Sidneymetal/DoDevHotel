@@ -13,8 +13,8 @@ namespace DoDevHotel.Lib.Context
         {
             modelBuilder.Entity<Estadia>().ToTable("ht_estadia");
             modelBuilder.Entity<Estadia>().HasKey(x => x.Id);
-            modelBuilder.Entity<Estadia>().HasOne(x => x.id_responsavel);
-            modelBuilder.Entity<Estadia>().HasOne(x => x.id_quarto);
+            modelBuilder.Entity<Estadia>().HasOne(x => x.Responsavel).WithMany(x => x.ListEstadia).HasForeignKey(x => x.IdResponsavel);
+            modelBuilder.Entity<Estadia>().HasOne(x => x.Quarto).WithMany(x => x.ListEstadia).HasForeignKey(x => x.IdQuarto);
             
             modelBuilder.Entity<EstadiaXHospede>().ToTable("ht_estadia_x_hospede");
             modelBuilder.Entity<EstadiaXHospede>().HasKey(x => x.Id);

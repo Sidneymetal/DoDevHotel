@@ -5,49 +5,48 @@ namespace DoDevHotel.Lib.Models
 {
     public class Estadia : ModelBase
     {
-        public int IdHospede {get;set;}
-        public int IdHotel {get;set;}
-        public DateTime DataEntrada{ get; set;}    
-        public DateTime DataSaida{ get; set;}    
-        public Hospede? Hospede { get; set; }
-        public Hotel? Hotel { get; set; }
+        public int IdResponsavel { get; set; }
+        public int IdQuarto { get; set; }
+        public DateTime DataEntrada { get; set; }
+        public DateTime DataSaida { get; set; }
+        public Hospede Responsavel { get; set; }
+        public Quarto Quarto { get; set; }
         public List<EstadiaXHospede> ListEstadiasXHospedes { get; set; } = new List<EstadiaXHospede>();
-        
-        public Estadia (int idHospede, int idHotel, DateTime dataEntrada, DateTime dataSaida, Hospede hospede, Hotel hotel, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base (id, dataAtualizacao, dataCadastro)
+        public Estadia(int idResponsavel, int idQuarto, DateTime dataEntrada, DateTime dataSaida, Hospede responsavel, Quarto quarto, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base(id, dataAtualizacao, dataCadastro)
         {
-            IdHospede = idHospede;
-            IdHotel = idHotel;
+            IdResponsavel = idResponsavel;
+            IdQuarto = idQuarto;
             DataEntrada = dataEntrada;
             DataSaida = dataSaida;
-            Hospede = hospede;
-            Hotel = hotel;
+            Responsavel = responsavel;
+            Quarto = quarto;
         }
         public Estadia()
         {
 
         }
-        public int GetIdHospede()
+        public int GetIdResponsavel()
         {
-            return IdHospede;
+            return IdResponsavel;
         }
-        public void SetIdHospede(int idHospede)
+        public void SetIdResponsavel(int idResponsavel)
         {
-            IdHospede = idHospede;
+            IdResponsavel = idResponsavel;
         }
-        public int GetIdHotel()
+        public int GetIdQuarto()
         {
-            return IdHotel;
+            return IdQuarto;
         }
-        public void SetIdHotel(int idHotel)
+        public void SetIdQuarto(int idQuarto)
         {
-            IdHotel = idHotel;
+            IdQuarto = idQuarto;
         }
         public DateTime GetDataEntrada()
         {
             return DataEntrada;
         }
         public void SetDataEntrada(DateTime dataEntrada)
-        {            
+        {
             DataEntrada = dataEntrada;
         }
         public DateTime GetDataSaida()
@@ -56,32 +55,25 @@ namespace DoDevHotel.Lib.Models
         }
         public void SetDataSaida(DateTime dataSaida)
         {
-            ValidarDataSaida(dataSaida);           
+            ValidarDataSaida(dataSaida);
             DataSaida = dataSaida;
         }
-        public Hospede GetHospede()
+        public Quarto GetQuarto()
         {
-            return Hospede;
+            return Quarto;
         }
-        public void SetHospede(Hospede hospede)
+        public void SetQuarto(Quarto quarto)
         {
-            Hospede = hospede;
+           Quarto = quarto;
         }
-        public Hotel GetHotel()
-        {
-            return Hotel;
-        }
-        public void SetHotel(Hotel hotel)
-        {
-            Hotel = hotel;
-        }
+              
         public bool ValidarDataSaida(DateTime dataSaida)
         {
-            if(DataSaida > DataEntrada)
+            if (DataSaida > DataEntrada)
             {
                 return true;
             }
             throw new DoDevHotelException("Data de Saída deve ser maior que a data de Entrada.");
         }
-    }   
+    }
 }

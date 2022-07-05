@@ -9,7 +9,7 @@ namespace DoDevHotel.Lib.Models
         public int Cpf { get; set; }
         public string Email { get; set; }
         public List<EstadiaXHospede> ListEstadiasXHospedes { get; set; } = new List<EstadiaXHospede>();
-
+        public List<Estadia> ListEstadia { get; set; } = new List<Estadia>();
         public Hospede(string nome, string telefone, int cpf, string email, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base(id, dataAtualizacao, dataCadastro)
         {
             Nome = nome;
