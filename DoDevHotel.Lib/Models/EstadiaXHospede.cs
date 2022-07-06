@@ -1,12 +1,12 @@
-namespace DoDevHotel.Lib.Models
+ namespace DoDevHotel.Lib.Models
 {
 
     public class EstadiaXHospede : ModelBase
     {
         public int IdEstadia { get; set; }
         public int IdHospede { get; set; }
-        public Estadia? Estadia { get; set; }
-        public Hospede? Hospede { get; set; }
+        public Estadia Estadia { get; set; }
+        public Hospede Hospede { get; set; }
 
         public EstadiaXHospede(int idEstadia, int idHospede, Estadia estadia, Hospede hospede, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base(id, dataAtualizacao, dataCadastro)
         {
@@ -53,8 +53,6 @@ namespace DoDevHotel.Lib.Models
         {
             Hospede = hospede;
         }
-
-
     }
    
 }

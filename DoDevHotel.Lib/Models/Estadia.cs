@@ -14,6 +14,7 @@ namespace DoDevHotel.Lib.Models
         public List<EstadiaXHospede> ListEstadiasXHospedes { get; set; } = new List<EstadiaXHospede>();
         public Estadia(int idResponsavel, int idQuarto, DateTime dataEntrada, DateTime dataSaida, Hospede responsavel, Quarto quarto, int id, DateTime dataAtualizacao, DateTime dataCadastro) : base(id, dataAtualizacao, dataCadastro)
         {
+            Id = id;
             IdResponsavel = idResponsavel;
             IdQuarto = idQuarto;
             DataEntrada = dataEntrada;
